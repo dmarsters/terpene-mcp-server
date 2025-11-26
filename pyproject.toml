@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "terpene-vocabulary-mcp"
+version = "0.1.0"
+description = "MCP server for terpene visual vocabulary - deterministic mapping of terpene compounds to visual parameters"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    {name = "Dal Marsters", email = "dal@lushy.ai"}
+]
+license = {text = "MIT"}
+
+dependencies = [
+    "fastmcp>=0.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "black>=22.0",
+    "ruff>=0.1.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/terpene_vocabulary"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
