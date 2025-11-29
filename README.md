@@ -52,3 +52,6 @@ Entry point: `src/terpene_vocabulary/handler.py:handler()`
 ## License
 
 MIT
+
+## Author
+Dal Marsters - Lushy.app
