@@ -1,42 +1,47 @@
+[project]
+name = "terpene-vocabulary-mcp"
+version = "2.7.0"
+description = "Terpene Visual Vocabulary MCP Server — deterministic mapping of terpene compounds to visual parameters for image generation, with Phase 2.6 rhythmic presets and Phase 2.7 attractor visualization prompt generation."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Dal Marsters" }
+]
+keywords = [
+    "mcp",
+    "terpene",
+    "aesthetic-dynamics",
+    "image-generation",
+    "visual-vocabulary",
+    "computational-aesthetics"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Artistic Software",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "fastmcp>=2.0.0",
+]
+
+[project.scripts]
+terpene-vocabulary-mcp = "terpene_vocabulary_mcp.server:main"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[project]
-name = "terpene-vocabulary-mcp"
-version = "0.1.0"
-description = "MCP server for terpene visual vocabulary - deterministic mapping of terpene compounds to visual parameters"
-readme = "README.md"
-requires-python = ">=3.8"
-authors = [
-    {name = "Dal Marsters", email = "dal@lushy.ai"}
-]
-license = {text = "MIT"}
-
-dependencies = [
-    "fastmcp>=0.1.0",
-]
-
-[project.optional-dependencies]
-dev = [
-    "pytest>=7.0",
-    "black>=22.0",
-    "ruff>=0.1.0",
-]
-
 [tool.hatch.build.targets.wheel]
-packages = ["src/terpene_vocabulary"]
+packages = ["terpene_vocabulary_mcp"]
 
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-python_files = ["test_*.py"]
-python_classes = ["Test*"]
-python_functions = ["test_*"]
-
-[tool.black]
-line-length = 100
-target-version = ['py38', 'py39', 'py310', 'py311']
-
-[tool.ruff]
-line-length = 100
-target-version = "py38"
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0",
+]
